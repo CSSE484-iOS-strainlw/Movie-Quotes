@@ -17,6 +17,7 @@ class MovieQuotesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.leftBarButtonItem = editButtonItem
         movieQuotes.append(MovieQuote(quote: "I Worked", movie: "Movie 1"))
         movieQuotes.append(MovieQuote(quote: "I Worked again", movie: "Movie 2"))
         
@@ -42,8 +43,8 @@ class MovieQuotesTableViewController: UITableViewController {
             // Todo: Add a quote
             let quoteTextField = alertController.textFields![0] as UITextField
             let movieTextField = alertController.textFields![1] as UITextField
-//            print(quoteTextField.text!)
-//            print(movieTextField.text!)
+            //            print(quoteTextField.text!)
+            //            print(movieTextField.text!)
             let newMovieQuote = MovieQuote(quote: quoteTextField.text!, movie: movieTextField.text!)
             self.movieQuotes.insert(newMovieQuote, at: 0)
             self.tableView.reloadData()
@@ -65,5 +66,12 @@ class MovieQuotesTableViewController: UITableViewController {
         
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            movieQuotes.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
     }
 }
