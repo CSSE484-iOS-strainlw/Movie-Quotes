@@ -12,6 +12,7 @@
 		DCB0B33A269688C60036BA5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCB0B338269688C60036BA5D /* Main.storyboard */; };
 		DCB0B33C269688C60036BA5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCB0B33B269688C60036BA5D /* Assets.xcassets */; };
 		DCB0B33F269688C60036BA5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCB0B33D269688C60036BA5D /* LaunchScreen.storyboard */; };
+		DCB0B349269BB95B0036BA5D /* MovieQuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB0B348269BB95B0036BA5D /* MovieQuotesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		DCB0B33B269688C60036BA5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCB0B33E269688C60036BA5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCB0B340269688C60036BA5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCB0B348269BB95B0036BA5D /* MovieQuotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuotesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				DCB0B33B269688C60036BA5D /* Assets.xcassets */,
 				DCB0B33D269688C60036BA5D /* LaunchScreen.storyboard */,
 				DCB0B340269688C60036BA5D /* Info.plist */,
+				DCB0B348269BB95B0036BA5D /* MovieQuotesTableViewController.swift */,
 			);
 			path = "Movie Quotes";
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCB0B333269688C60036BA5D /* AppDelegate.swift in Sources */,
+				DCB0B349269BB95B0036BA5D /* MovieQuotesTableViewController.swift in Sources */,
 				DCB0B335269688C60036BA5D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
