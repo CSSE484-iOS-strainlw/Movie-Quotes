@@ -11,6 +11,7 @@ import UIKit
 class MovieQuotesTableViewController: UITableViewController {
     
     let movieQuoteCellIdentifier = "MovieQuoteCell"
+    let detailSegueIdentifier = "DetailSegue"
     
     // var names = ["Loki","Jade","Larry"]
     var movieQuotes = [MovieQuote]()
@@ -23,6 +24,11 @@ class MovieQuotesTableViewController: UITableViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddQuoteDialog))
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     @objc func showAddQuoteDialog(){
@@ -72,6 +78,14 @@ class MovieQuotesTableViewController: UITableViewController {
         if editingStyle == .delete {
             movieQuotes.remove(at: indexPath.row)
             tableView.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == detailSegueIdentifier{
+            if let indexPath = tableView.indexPathForSelectedRow{
+                (segue.destination as! MovieQuoteDetailViewController).movieQuote = movieQuotes[indexPath.row]
+            }
         }
     }
 }
