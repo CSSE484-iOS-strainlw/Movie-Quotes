@@ -14,6 +14,7 @@ class MovieQuotesTableViewController: UITableViewController {
     let movieQuoteCellIdentifier = "MovieQuoteCell"
     let detailSegueIdentifier = "DetailSegue"
     var movieQuotesRef: CollectionReference!
+    var movieQuoteListener: ListenerRegistration!
     
     // var names = ["Loki","Jade","Larry"]
     var movieQuotes = [MovieQuote]()
@@ -46,6 +47,11 @@ class MovieQuotesTableViewController: UITableViewController {
                 return
             }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        movieQuoteListener.remove()
     }
     
     @objc func showAddQuoteDialog(){
@@ -105,7 +111,8 @@ class MovieQuotesTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == detailSegueIdentifier{
             if let indexPath = tableView.indexPathForSelectedRow{
-                (segue.destination as! MovieQuoteDetailViewController).movieQuote = movieQuotes[indexPath.row]
+//                (segue.destination as! MovieQuoteDetailViewController).movieQuote = movieQuotes[indexPath.row]
+                (segue.destination as! MovieQuoteDetailViewController).movieQuoteRef = movieQuotesRef.document(movieQuotes[indexPath.row].id!)
             }
         }
     }
