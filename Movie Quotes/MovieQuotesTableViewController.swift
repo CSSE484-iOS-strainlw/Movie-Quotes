@@ -33,7 +33,7 @@ class MovieQuotesTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
         
-        movieQuotesRef.order(by: "created", descending: true).limit(to: 50).addSnapshotListener { (querySnapshot, error) in
+        movieQuoteListener = movieQuotesRef.order(by: "created", descending: true).limit(to: 50).addSnapshotListener( { (querySnapshot, error) in
             if let querySnapshot = querySnapshot{
                 self.movieQuotes.removeAll()
                 querySnapshot.documents.forEach { (documentSnapshot) in
@@ -46,7 +46,7 @@ class MovieQuotesTableViewController: UITableViewController {
                 print("Error")
                 return
             }
-        }
+        })
     }
     
     override func viewWillDisappear(_ animated: Bool) {
