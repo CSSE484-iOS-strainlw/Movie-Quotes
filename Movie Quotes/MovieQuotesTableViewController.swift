@@ -100,7 +100,7 @@ class MovieQuotesTableViewController: UITableViewController {
 //            self.movieQuotes.insert(newMovieQuote, at: 0)
 //            self.tableView.reloadData()
             
-            self.movieQuotesRef.addDocument(data: ["quote": quoteTextField.text!,"movie":movieTextField.text!, "created": Timestamp.init()])
+            self.movieQuotesRef.addDocument(data: ["quote": quoteTextField.text!,"movie":movieTextField.text!, "created": Timestamp.init(), "author": Auth.auth().currentUser!.uid])
         }
         alertController.addAction(submitAction)
         
