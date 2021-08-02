@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class MovieQuoteDetailViewController: UIViewController {
     
@@ -21,7 +22,7 @@ class MovieQuoteDetailViewController: UIViewController {
     override func viewDidLoad(){
         
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(showEditDialog))
+        
         
     }
     
@@ -39,6 +40,19 @@ class MovieQuoteDetailViewController: UIViewController {
                 return
             }
             self.movieQuote = MovieQuote(documentSnapshot: documentSnapshot!)
+            
+//            Decide if we can edit or not
+            if (Auth.auth().currentUser!.uid == self.movieQuote?.author){
+                
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(self.showEditDialog))
+                
+            }else{
+                self.navigationItem.rightBarButtonItem = nil
+            }
+            
+            
+            
+            
             self.updateView()
             }
         }
