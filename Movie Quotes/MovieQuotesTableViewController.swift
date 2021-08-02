@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class MovieQuotesTableViewController: UITableViewController {
     
@@ -29,9 +30,30 @@ class MovieQuotesTableViewController: UITableViewController {
         
     }
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        
+        if (Auth.auth().currentUser == nil) {
+//            Not Signed In so sign in annonymously
+            print("Signing in")
+            Auth.auth().signInAnonymously { (authResult, error) in
+                if let error = error {
+                    print("Error with anonymous \(error)")
+                    return
+                }
+                print("You Signed In")
+            }
+        }else{
+//            Already Signed in
+            print("Signed In")
+        }
+        
+        
+        
+        
+//        tableView.reloadData()
         
         movieQuoteListener = movieQuotesRef.order(by: "created", descending: true).limit(to: 50).addSnapshotListener( { (querySnapshot, error) in
             if let querySnapshot = querySnapshot{
