@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Firebase
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
@@ -16,9 +17,40 @@ class LoginViewController: UIViewController {
     
     let showListSegueIdentifier = "ShowListSegue"
     
-    @IBAction func pressedSignInNewUser(_ sender: Any) {
-    }
-    @IBAction func pressedLogInExsistingUser(_ sender: Any) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        emailTextField.placeholder = "Email"
+        passwordTextField.placeholder = "Password"
     }
     
-}
+    @IBAction func pressedSignInNewUser(_ sender: Any) {
+        let email = emailTextField.text!
+        let password = passwordTextField.text!
+        Auth.auth().createUser(withEmail: email, password: password) {authResult, error in
+            if let error = error {
+                print("Error Creating New User \(error)")
+            }
+            
+            print("It Worked. New user created and signe in")
+            self.performSegue(withIdentifier: self.showListSegueIdentifier, sender: self)
+            
+        }
+    }
+    
+    @IBAction func pressedLogInExsistingUser(_ sender: Any) {
+        let email = emailTextField.text!
+        let password = passwordTextField.text!
+        Auth.auth().signIn(withEmail: email, password: password) {authResult, error in
+            if let error = error {
+                print("Error With Exsisting user \(error)")
+            }
+            
+            print("It Worked. Signed in exsisting user")
+            self.performSegue(withIdentifier: self.showListSegueIdentifier, sender: self)
+            
+        }
+    }
+    
+    }
+    
+
