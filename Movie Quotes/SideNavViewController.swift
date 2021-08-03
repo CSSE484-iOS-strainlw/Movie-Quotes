@@ -7,13 +7,16 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class SideNavViewController: UIViewController{
     
     
     
     @IBAction func pressedGoToProfilePage(_ sender: Any) {
-        print("TODO Make a Profile Page")
+        dismiss(animated: true, completion: nil)
+        tableViewController.performSegue(withIdentifier: ProfilePageSegue, sender: tableViewController)
     }
     
     @IBAction func pressedShowAllQuotes(_ sender: Any) {
@@ -32,11 +35,18 @@ class SideNavViewController: UIViewController{
     }
     
     @IBAction func pressedDeleteQuotes(_ sender: Any) {
-        print("TODO Go Into Editing Mode")
+        tableViewController.setEditing(!tableViewController.isEditing, animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
+    
     @IBAction func pressedLogOut(_ sender: Any) {
-        print("Sign Out")
+        dismiss(animated: true, completion: nil)
+        do{
+            try Auth.auth().signOut()
+        } catch{
+            print("Sign out Error")
+        }
     }
     
     var tableViewController: MovieQuotesTableViewController{
