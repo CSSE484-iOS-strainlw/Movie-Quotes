@@ -8,6 +8,67 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="5IV-lf-A6Q">
+            <objects>
+                <viewController id="UwI-eU-bz5" customClass="LoginViewController" customModule="Movie_Quotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f0f-z0-KFl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vQ9-CB-ncN">
+                                <rect key="frame" x="20" y="138" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8nc-gs-fqV">
+                                <rect key="frame" x="20" y="202" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4C-e9-Hf5">
+                                <rect key="frame" x="251" y="256" width="143" height="30"/>
+                                <state key="normal" title="Log In Exsisting User"/>
+                                <connections>
+                                    <action selector="pressedLogInExsistingUser:" destination="UwI-eU-bz5" eventType="touchUpInside" id="pgk-r8-Txd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MK4-pi-ZQv">
+                                <rect key="frame" x="20" y="256" width="115" height="30"/>
+                                <state key="normal" title="Sign in new User"/>
+                                <connections>
+                                    <action selector="pressedSignInNewUser:" destination="UwI-eU-bz5" eventType="touchUpInside" id="wqZ-nP-SEF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Fla-RU-eHk"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="8nc-gs-fqV" firstAttribute="top" secondItem="vQ9-CB-ncN" secondAttribute="bottom" constant="30" id="8Wm-oa-QzK"/>
+                            <constraint firstItem="vQ9-CB-ncN" firstAttribute="leading" secondItem="Fla-RU-eHk" secondAttribute="leading" constant="20" id="ASr-Ng-eXu"/>
+                            <constraint firstItem="MK4-pi-ZQv" firstAttribute="leading" secondItem="Fla-RU-eHk" secondAttribute="leading" constant="20" id="BpG-b1-nLu"/>
+                            <constraint firstItem="Fla-RU-eHk" firstAttribute="trailing" secondItem="vQ9-CB-ncN" secondAttribute="trailing" constant="20" id="Zz2-8b-s76"/>
+                            <constraint firstItem="vQ9-CB-ncN" firstAttribute="top" secondItem="Fla-RU-eHk" secondAttribute="top" constant="50" id="b93-71-V1d"/>
+                            <constraint firstItem="8nc-gs-fqV" firstAttribute="leading" secondItem="Fla-RU-eHk" secondAttribute="leading" constant="20" id="dle-YZ-bpz"/>
+                            <constraint firstItem="Fla-RU-eHk" firstAttribute="trailing" secondItem="v4C-e9-Hf5" secondAttribute="trailing" constant="20" id="ipt-Kw-10v"/>
+                            <constraint firstItem="Fla-RU-eHk" firstAttribute="trailing" secondItem="8nc-gs-fqV" secondAttribute="trailing" constant="20" id="kcQ-cs-jVH"/>
+                            <constraint firstItem="MK4-pi-ZQv" firstAttribute="top" secondItem="8nc-gs-fqV" secondAttribute="bottom" constant="20" id="qej-hb-7ci"/>
+                            <constraint firstItem="v4C-e9-Hf5" firstAttribute="top" secondItem="8nc-gs-fqV" secondAttribute="bottom" constant="20" id="xnX-nd-jia"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bdK-5Y-7kN"/>
+                    <connections>
+                        <outlet property="EmailTextField" destination="vQ9-CB-ncN" id="5bi-8p-W8S"/>
+                        <outlet property="PasswordTextField" destination="8nc-gs-fqV" id="XNY-xD-ndH"/>
+                        <outlet property="emailTextField" destination="vQ9-CB-ncN" id="pjR-wN-Z5t"/>
+                        <outlet property="passwordTextField" destination="8nc-gs-fqV" id="LzP-59-3ov"/>
+                        <segue destination="gKv-gM-FGA" kind="show" identifier="ShowListSegue" id="icj-7B-xQD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FUw-6d-O49" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-83" y="80"/>
+        </scene>
         <!--Movie Quotes Table View Controller-->
         <scene sceneID="a9Y-tL-CWw">
             <objects>
@@ -123,12 +184,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="gKv-gM-FGA" kind="relationship" relationship="rootViewController" id="ZCG-Uc-s8e"/>
+                        <segue destination="UwI-eU-bz5" kind="relationship" relationship="rootViewController" id="uky-VZ-dPQ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mhd-Tg-BME" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-149.27536231884059" y="80.357142857142847"/>
+            <point key="canvasLocation" x="-914" y="80"/>
         </scene>
     </scenes>
     <resources>
