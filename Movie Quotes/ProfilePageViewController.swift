@@ -15,6 +15,21 @@ class ProfilePageViewController: UIViewController{
     @IBOutlet weak var profilePhotoImageView: UIImageView!
     @IBOutlet weak var displayNameTextField: UITextField!
     @IBAction func pressedEditPhoto(_ sender: Any) {
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            print("Phone")
+            imagePickerController.sourceType = .camera
+        }else{
+            print("Sim")
+            imagePickerController.sourceType = .photoLibrary
+        }
+        
+        present(imagePickerController, animated: true, completion: nil)
+        
     }
     
     override func viewDidLoad() {
@@ -53,3 +68,23 @@ class ProfilePageViewController: UIViewController{
     }
     
 }
+
+extension ProfilePageViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as! UIImage? {
+            profilePhotoImageView.image = image
+        } else if let image = info[UIImagePickerController.InfoKey.editedImage] as! UIImage? {
+            profilePhotoImageView.image = image        }
+        
+        
+        dismiss(animated: true, completion: nil)
+    }
+
+}
+
+
