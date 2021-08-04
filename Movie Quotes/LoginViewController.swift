@@ -57,6 +57,14 @@ class LoginViewController: UIViewController {
             self.performSegue(withIdentifier: self.showListSegueIdentifier, sender: self)
             
         }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == showListSegueIdentifier{
+            print("Checking for user \(Auth.auth().currentUser!.uid)")
+            UserManager.shared.addNewUserMaybe(uid: Auth.auth().currentUser!.uid, name: Auth.auth().currentUser!.displayName, photoUrl: Auth.auth().currentUser!.photoURL?.absoluteString ?? "")
+        }
     }
     
     }
