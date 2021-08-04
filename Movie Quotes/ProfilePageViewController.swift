@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class ProfilePageViewController: UIViewController{
     
@@ -16,13 +18,24 @@ class ProfilePageViewController: UIViewController{
     }
     
     override func viewDidLoad() {
+        
+        UserManager.shared.beginListening(uid: Auth.auth().currentUser!.uid, changeListener: updateView)
+        
         displayNameTextField.addTarget(self, action: #selector(handleNameEdit), for: UIControl.Event.editingChanged)
+        
+        
     }
     
     @objc func handleNameEdit(_sender: Any){
-        if let name = displayNameTextField{
+        if let name = displayNameTextField.text{
             print(name)
+            UserManager.shared.updateName(name: name)
         }
+    }
+    
+    func updateView(){
+        displayNameTextField.text = UserManager.shared.name
+        
     }
     
 }
