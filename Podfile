@@ -11,5 +11,6 @@ target 'Movie Quotes' do
   pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
   pod 'SideMenu'
+  pod 'Kingfisher'
 
 end

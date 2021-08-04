@@ -19,10 +19,20 @@ class ProfilePageViewController: UIViewController{
     
     override func viewDidLoad() {
         
-        UserManager.shared.beginListening(uid: Auth.auth().currentUser!.uid, changeListener: updateView)
+        
         
         displayNameTextField.addTarget(self, action: #selector(handleNameEdit), for: UIControl.Event.editingChanged)
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UserManager.shared.beginListening(uid: Auth.auth().currentUser!.uid, changeListener: updateView)    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        UserManager.shared.stopListeing()
         
     }
     
@@ -35,6 +45,10 @@ class ProfilePageViewController: UIViewController{
     
     func updateView(){
         displayNameTextField.text = UserManager.shared.name
+        
+        if UserManager.shared.photoUrl.count > 0{
+            ImageUtils.load(imageView: profilePhotoImageView, from: UserManager.shared.photoUrl)
+        }
         
     }
     

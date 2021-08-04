@@ -13,6 +13,7 @@
 		DC4DD4CA26BA01CC003A3338 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD4C926BA01CC003A3338 /* ProfilePageViewController.swift */; };
 		DC4DD4CC26BA04BA003A3338 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD4CB26BA04BA003A3338 /* Constants.swift */; };
 		DC4DD4CE26BA0D5C003A3338 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD4CD26BA0D5C003A3338 /* UserManager.swift */; };
+		DC4DD4D026BA2842003A3338 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD4CF26BA2842003A3338 /* ImageUtils.swift */; };
 		DC79311B26A658A40098D162 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC79311A26A658A40098D162 /* GoogleService-Info.plist */; };
 		DCB0B333269688C60036BA5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB0B332269688C60036BA5D /* AppDelegate.swift */; };
 		DCB0B335269688C60036BA5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB0B334269688C60036BA5D /* SceneDelegate.swift */; };
@@ -33,6 +34,7 @@
 		DC4DD4C926BA01CC003A3338 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		DC4DD4CB26BA04BA003A3338 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DC4DD4CD26BA0D5C003A3338 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		DC4DD4CF26BA2842003A3338 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		DC79311A26A658A40098D162 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DCB0B32F269688C60036BA5D /* Movie Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Movie Quotes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCB0B332269688C60036BA5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				DC4DD4C926BA01CC003A3338 /* ProfilePageViewController.swift */,
 				DC4DD4CB26BA04BA003A3338 /* Constants.swift */,
 				DC4DD4CD26BA0D5C003A3338 /* UserManager.swift */,
+				DC4DD4CF26BA2842003A3338 /* ImageUtils.swift */,
 			);
 			path = "Movie Quotes";
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				DC4DD4CA26BA01CC003A3338 /* ProfilePageViewController.swift in Sources */,
 				DC4DD4CE26BA0D5C003A3338 /* UserManager.swift in Sources */,
 				DC4DD4CC26BA04BA003A3338 /* Constants.swift in Sources */,
+				DC4DD4D026BA2842003A3338 /* ImageUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
