@@ -411,7 +411,6 @@
         <!--Movie Quote Detail View Controller-->
         <scene sceneID="IDK-D4-RPJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7jQ-dN-Ss6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="pz3-x1-Pxc" customClass="MovieQuoteDetailViewController" customModule="Movie_Quotes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EVf-ce-wpr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -461,6 +460,7 @@
                         <outlet property="quoteLabel" destination="VHb-zE-EIO" id="6mg-7f-3Lf"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7jQ-dN-Ss6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1574" y="80"/>
         </scene>
